@@ -1,5 +1,8 @@
 # Aurelia Atelier
 
+**Live Demo:** https://jvenero9906-lab.github.io/Aurelia-Atelier/
+**Repository:** https://github.com/jvenero9906-lab/Aurelia-Atelier
+
 Aurelia Atelier is a premium dessert shop frontend concept built to showcase a refined ecommerce experience. The project combines elegant visual design with interactive product browsing, a dynamic cart drawer, and a WhatsApp checkout flow.
 
 ## Features
@@ -26,4 +29,4 @@ This project was created as a frontend portfolio piece to demonstrate responsive
 
 ## Live Demo
 
-https://jvenero9906-lab.github.io/Aurelia-Atelier/
+
