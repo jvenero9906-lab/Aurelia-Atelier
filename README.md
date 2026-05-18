@@ -26,4 +26,4 @@ This project was created as a frontend portfolio piece to demonstrate responsive
 
 ## Live Demo
 
-Coming soon.
+https://jvenero9906-lab.github.io/Aurelia-Atelier/
