@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurelia Atelier | Haute Pâtisserie Atelier</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-sans {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #FCF9F5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #E4DCD3;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-[#FCF9F5] text-stone-800 font-sans antialiased min-h-screen flex flex-col justify-between overflow-x-hidden">
+
+    <div class="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-rose-100/30 rounded-full filter blur-3xl"></div>
+    <div class="absolute top-[800px] -left-20 -z-10 w-[500px] h-[500px] bg-amber-50/40 rounded-full filter blur-3xl">
+    </div>
+
+    <nav
+        class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-stone-100 px-6 py-4 md:px-16 flex justify-between items-center shadow-xs">
+        <div class="flex flex-col">
+            <span class="font-serif text-2xl font-black text-stone-900 tracking-tight">Aurelia Atelier</span>
+            <span class="text-[9px] text-rose-700 font-bold tracking-widest uppercase mt-0.5">Haute Pâtisserie
+                Atelier</span>
+        </div>
+        <div class="flex items-center gap-8">
+            <div class="space-x-8 hidden md:flex font-medium text-stone-600 text-xs tracking-wider uppercase">
+                <a href="#inicio" class="hover:text-rose-600 transition-colors">Concept</a>
+                <a href="#menu" class="hover:text-rose-600 transition-colors">Collection</a>
+                <a href="#contacto" class="hover:text-rose-600 transition-colors">Visit Us</a>
+            </div>
+            <button onclick="toggleCart()"
+                class="relative bg-stone-900 hover:bg-rose-950 text-white p-3 rounded-full transition-all duration-300 shadow-md flex items-center justify-center cursor-pointer">
+                <i class="fa-solid fa-bag-shopping text-sm"></i>
+                <span id="cart-badge"
+                    class="absolute -top-1.5 -right-1.5 bg-rose-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center opacity-0 scale-50 transition-all duration-300">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <header id="inicio"
+        class="relative py-24 px-6 md:px-16 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+        <div class="lg:col-span-7 space-y-8">
+            <h1
+                class="font-serif text-5xl sm:text-7xl lg:text-8xl font-black text-stone-900 leading-[0.95] tracking-tighter">
+                We design fleeting <span class="text-rose-700 italic font-medium">masterpieces</span>
+            </h1>
+            <p class="text-stone-500 text-lg md:text-xl font-light leading-relaxed max-w-xl">
+                We do not merely mix ingredients. We study chemical ratios, balance structural textures, and sculpt
+                memory through flavor profiles perfected across generations.
+            </p>
+            <div class="pt-2 flex flex-col sm:flex-row gap-4">
+                <a href="#menu"
+                    class="text-center bg-stone-900 text-white font-semibold text-sm tracking-wide uppercase px-8 py-4 rounded-xl hover:bg-rose-950 transition-all duration-300 shadow-xl shadow-stone-900/10">
+                    View Contemporary Menu
+                </a>
+            </div>
+        </div>
+
+        <div class="lg:col-span-5 mt-12 lg:mt-0">
+            <div
+                class="bg-white/75 backdrop-blur-md border border-stone-200/80 rounded-2xl shadow-2xl shadow-stone-200/40 overflow-hidden">
+                <div class="p-8 sm:p-10 border-b border-stone-200/70">
+                    <span class="text-[10px] font-bold text-rose-700 tracking-[0.28em] uppercase">Established
+                        Atelier</span>
+                    <div class="mt-5 flex items-end justify-between gap-6">
+                        <div class="font-serif text-5xl sm:text-6xl font-black text-stone-900 leading-none">
+                            Since<br>1997
+                        </div>
+                        <div class="w-20 h-20 rounded-full border border-rose-200 bg-rose-50 flex items-center justify-center">
+                            <i class="fa-solid fa-award text-2xl text-rose-700"></i>
+                        </div>
+                    </div>
+                    <p class="mt-6 text-sm text-stone-500 leading-relaxed">
+                        A polished storefront concept built around product storytelling, premium visual hierarchy, and
+                        a complete interactive ordering flow.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-3 divide-x divide-stone-200/70 bg-stone-50/70">
+                    <div class="p-5">
+                        <p class="font-serif text-2xl font-black text-stone-900">9</p>
+                        <p class="mt-1 text-[10px] font-bold uppercase tracking-wider text-stone-500">Products</p>
+                    </div>
+                    <div class="p-5">
+                        <p class="font-serif text-2xl font-black text-stone-900">100%</p>
+                        <p class="mt-1 text-[10px] font-bold uppercase tracking-wider text-stone-500">Responsive</p>
+                    </div>
+                    <div class="p-5">
+                        <p class="font-serif text-2xl font-black text-stone-900">Live</p>
+                        <p class="mt-1 text-[10px] font-bold uppercase tracking-wider text-stone-500">Cart UI</p>
+                    </div>
+                </div>
+
+                <div class="p-6 sm:p-8 flex items-center justify-between gap-4">
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-wider text-stone-900">Signature Experience</p>
+                        <p class="mt-1 text-xs text-stone-500 leading-relaxed">
+                            Curated to highlight artisanal quality, seasonal ingredients, and a refined ordering journey.
+                        </p>
+                    </div>
+                    <a href="#menu"
+                        class="shrink-0 w-11 h-11 rounded-full bg-stone-900 hover:bg-rose-950 text-white flex items-center justify-center transition-colors"
+                        aria-label="View collection">
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="menu" class="max-w-7xl mx-auto px-6 md:px-16 py-24 w-full border-t border-stone-200/60">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+            <div class="space-y-3">
+                <span class="text-xs font-bold text-rose-700 tracking-widest uppercase block">Seasonal Drop</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-black text-stone-900 tracking-tight">The Sweet Jewels
+                </h2>
+            </div>
+            <p class="text-stone-500 text-sm max-w-xs font-light leading-relaxed">
+                Explore our signature desserts, crafted in small batches with refined textures, delicate aromas, and
+                ingredients selected for every season.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div id="products-target" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 col-span-3"></div>
+        </div>
+    </main>
+
+    <footer id="contacto" class="bg-stone-950 text-stone-500 py-16 px-6 md:px-16 border-t border-stone-900">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="space-y-4">
+                <p class="font-serif text-2xl font-bold text-white tracking-tight">Aurelia Atelier</p>
+                <p class="text-xs leading-relaxed max-w-xs">
+                    Operating continuously as a high-end gastronomic laboratory since 1997. Registered portfolio design
+                    architecture.
+                </p>
+                <div class="flex gap-4 text-white text-sm pt-2">
+                    <a href="#" class="hover:text-rose-500 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-rose-500 transition-colors"><i class="fa-brands fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <p class="text-white font-semibold tracking-wider uppercase text-xs">Laboratory Hours</p>
+                <ul class="space-y-2 text-xs">
+                    <li><span class="text-stone-400 font-medium">Mon - Fri:</span> 08:00 — 20:00</li>
+                    <li><span class="text-stone-400 font-medium">Saturdays:</span> 09:00 — 21:00</li>
+                    <li><span class="text-stone-400 font-medium">Sundays:</span> 10:00 — 18:00</li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <p class="text-white font-semibold tracking-wider uppercase text-xs">Atelier Location</p>
+                <p class="text-xs leading-relaxed">
+                    1997 Sweet Dreams Ave,<br>
+                    Pastry District, Bakery City<br>
+                    <span class="text-stone-600 font-mono text-[11px] block mt-1">+34 987 654 321</span>
+                </p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-stone-900 mt-12 pt-8 text-center text-[11px] text-stone-700">
+            <p>© 2026 Aurelia Atelier. Tailored as a strict non-generic custom engineering development showcase.</p>
+        </div>
+    </footer>
+
+    <div id="modal-producto"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/60 opacity-0 pointer-events-none transition-all duration-300 backdrop-blur-xs">
+        <div
+            class="bg-white rounded-2xl overflow-hidden max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl flex flex-col md:flex-row border border-stone-200 transform scale-95 transition-transform duration-300">
+            <div class="md:w-1/2 h-64 md:h-auto relative bg-stone-50">
+                <img id="modal-img" src="" alt="" class="w-full h-full object-cover">
+            </div>
+            <div class="md:w-1/2 p-6 md:p-8 flex flex-col justify-between space-y-6">
+                <div class="flex justify-between items-start">
+                    <div class="space-y-1">
+                        <h3 id="modal-title" class="font-serif text-2xl font-black text-stone-900"></h3>
+                        <span id="modal-price" class="text-xl font-bold text-rose-700 block"></span>
+                    </div>
+                    <button onclick="cerrarModal()"
+                        class="text-stone-400 hover:text-stone-900 cursor-pointer text-lg p-1 transition-colors">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <div class="space-y-4 border-y border-stone-100 py-4">
+                    <div class="grid grid-cols-2 gap-2">
+                        <div
+                            class="flex items-center gap-2 text-stone-600 text-xs bg-stone-50 p-2.5 rounded-lg border border-stone-200/30">
+                            <i class="fa-solid fa-fire-flame-curved text-orange-500"></i>
+                            <span><strong>Energy:</strong> <span id="modal-kcal"></span></span>
+                        </div>
+                        <div
+                            class="flex items-center gap-2 text-stone-600 text-xs bg-stone-50 p-2.5 rounded-lg border border-stone-200/30">
+                            <i class="fa-solid fa-weight-scale text-blue-500"></i>
+                            <span><strong>Mass Vol:</strong> <span id="modal-weight"></span></span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-stone-400 tracking-wider uppercase block">Allergen
+                            Security Index</span>
+                        <div id="modal-allergens" class="flex flex-wrap gap-1"></div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <span class="text-[10px] font-bold text-stone-400 tracking-wider uppercase block">Culinary
+                            Description</span>
+                        <p id="modal-desc" class="text-stone-500 text-xs leading-relaxed"></p>
+                    </div>
+                </div>
+
+                <div id="modal-action-box" class="flex items-center gap-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cart-drawer-overlay" onclick="toggleCart()"
+        class="fixed inset-0 z-50 bg-stone-950/40 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-xs">
+    </div>
+    <div id="cart-drawer"
+        class="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between border-l border-stone-200">
+        <div class="p-6 border-b border-stone-100 flex justify-between items-center bg-stone-50">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-bag-shopping text-stone-800 text-sm"></i>
+                <h3 class="font-serif text-lg font-bold text-stone-900">Your Compiled Order</h3>
+            </div>
+            <button onclick="toggleCart()"
+                class="text-stone-400 hover:text-stone-900 cursor-pointer text-sm font-semibold uppercase tracking-wider">Close</button>
+        </div>
+
+        <div id="cart-items-container" class="p-6 overflow-y-auto flex-1 space-y-4"></div>
+
+        <div class="p-6 border-t border-stone-100 space-y-4 bg-stone-50">
+            <div class="space-y-1.5 text-xs text-stone-600 font-medium">
+                <div class="flex justify-between">
+                    <span>Total Mass Accumulation:</span>
+                    <span id="cart-total-weight" class="text-stone-900 font-bold">0g</span>
+                </div>
+                <div class="flex justify-between text-sm border-t border-stone-200/60 pt-2 font-bold">
+                    <span class="text-stone-900">Estimated Subtotal:</span>
+                    <span id="cart-total-price" class="text-rose-700 text-base">$0.00</span>
+                </div>
+            </div>
+            <button onclick="compileAndSendToWhatsApp()"
+                class="w-full bg-stone-900 hover:bg-rose-950 text-white font-semibold text-xs uppercase tracking-wider py-4 rounded-xl flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-lg shadow-stone-900/10">
+                <i class="fa-brands fa-whatsapp text-sm"></i> Dispatch Compiled Order via WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <div class="fixed bottom-6 right-6 z-30 flex flex-col gap-2">
+        <button onclick="toggleCart()"
+            class="bg-rose-700 hover:bg-rose-800 text-white p-4 rounded-full shadow-2xl cursor-pointer transition-transform hover:scale-105 active:scale-95 flex items-center justify-center">
+            <i class="fa-solid fa-clipboard-list text-base"></i>
+        </button>
+    </div>
+
+    <script>
+        const products = [
+            { id: 0, name: "Vanilla & Raspberry Cupcakes", price: 15.00, formattedPrice: "$15.00", weight: "85g / unit", weightNum: 85, image: "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=600&auto=format&fit=crop", kcal: "280 kcal", allergens: ["Gluten", "Dairy", "Eggs"], desc: "Box of 6 units. Tender Madagascar vanilla sponge cores filled with fresh cold-pressed raspberry coulis and organic vanilla buttercream." },
+            { id: 1, name: "Supreme Red Velvet Cake", price: 28.00, formattedPrice: "$28.00", weight: "150g / slice", weightNum: 150, image: "https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?q=80&w=600&auto=format&fit=crop", kcal: "420 kcal", allergens: ["Gluten", "Dairy", "Eggs"], desc: "Full cake serving 10. Striking structural cocoa crimson layers coupled meticulously with authentic premium acidified cream cheese frostings." },
+            { id: 2, name: "Special Glazed Donuts", price: 12.00, formattedPrice: "$12.00", weight: "95g / unit", weightNum: 95, image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=600&auto=format&fit=crop", kcal: "310 kcal", allergens: ["Gluten", "Dairy", "Eggs"], desc: "Box of 4 units. Ultra-hydrated brioche dough sheets layered meticulously and covered with wild forest strawberry reductions." },
+            { id: 3, name: "Almond Croissant", price: 4.50, formattedPrice: "$4.50", weight: "120g / unit", weightNum: 120, image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600&auto=format&fit=crop", kcal: "390 kcal", allergens: ["Gluten", "Dairy", "Eggs", "Tree Nuts"], desc: "Flaky 100% Normandy butter lamination process embedded perfectly with velvety sweet almond frangipane cream." },
+            { id: 4, name: "Lemon Meringue Tart", price: 18.50, formattedPrice: "$18.50", weight: "140g / slice", weightNum: 140, image: "https://images.unsplash.com/photo-1519869325930-281384150729?q=80&w=600&auto=format&fit=crop", kcal: "320 kcal", allergens: ["Gluten", "Dairy", "Eggs"], desc: "Crispy linear sable shell containing high-density emulsified lemon curd, complete with structured peaks of torched Italian meringue." },
+            { id: 5, name: "Lavender & Honey Macarons", price: 14.00, formattedPrice: "$14.00", weight: "25g / unit", weightNum: 25, image: "https://images.unsplash.com/photo-1569864358642-9d1684040f43?q=80&w=600&auto=format&fit=crop", kcal: "95 kcal", allergens: ["Dairy", "Eggs", "Almond Flour"], desc: "Box of 6 units. Delicate French meringue shells utilizing precision-ground almond flour filled seamlessly with wildflower honey ganache." },
+            { id: 6, name: "Mixed Berry Cheesecake", price: 24.00, formattedPrice: "$24.00", weight: "160g / slice", weightNum: 160, image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=600&auto=format&fit=crop", kcal: "380 kcal", allergens: ["Gluten", "Dairy", "Eggs"], desc: "Dense New York formulation slow-baked over a compressed butter biscuit substrate, layered with hand-picked organic dark berries." },
+            { id: 7, name: "Pastry Cream Mille-Feuille", price: 5.20, formattedPrice: "$5.20", weight: "130g / unit", weightNum: 130, image: "https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=600&auto=format&fit=crop", kcal: "340 kcal", allergens: ["Gluten", "Dairy", "Eggs"], desc: "Caramelized inverted puff pastry partitions structured elegantly with standard-set cold vanilla bean pastry cream matrix." },
+            { id: 8, name: "Walnut Fudge Brownie", price: 3.80, formattedPrice: "$3.80", weight: "110g / unit", weightNum: 110, image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format&fit=crop", kcal: "410 kcal", allergens: ["Gluten", "Dairy", "Tree Nuts"], desc: "High-density dark square using 70% pure Single-Origin Belgian chocolate blocks, loaded with raw hand-fractured walnuts." },
+        ];
+
+        let cart = [];
+
+        function initApp() {
+            const target = document.getElementById('products-target');
+            target.innerHTML = '';
+
+            products.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl overflow-hidden border border-stone-200/60 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group";
+                card.innerHTML = `
+                    <div class="overflow-hidden h-64 relative bg-stone-100 cursor-pointer" onclick="abrirModal(${p.id})">
+                        <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-stone-950/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="relative w-12 h-12 flex items-center justify-center bg-white rounded-full text-stone-900 shadow-2xl transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                                <i class="fa-regular fa-eye-slash absolute transition-all duration-300 opacity-100 group-hover:opacity-0 group-hover:rotate-12"></i>
+                                <i class="fa-regular fa-eye absolute transition-all duration-300 opacity-0 group-hover:opacity-100 text-rose-700"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-start gap-2">
+                            <h3 class="font-serif text-lg font-bold text-stone-900 group-hover:text-rose-950 transition-colors">${p.name}</h3>
+                            <span class="text-sm font-bold text-rose-700 font-mono bg-stone-50 border border-stone-200/40 px-2.5 py-1 rounded-lg">${p.formattedPrice}</span>
+                        </div>
+                        <div class="flex gap-4 text-[11px] font-medium text-stone-400">
+                            <span><i class="fa-solid fa-weight-scale mr-1 text-stone-300"></i>${p.weight}</span>
+                            <span><i class="fa-solid fa-fire mr-1 text-stone-300"></i>${p.kcal}</span>
+                        </div>
+                        <div class="pt-2 flex items-center gap-2" onclick="event.stopPropagation();">
+                            <div class="flex items-center border border-stone-200 rounded-lg bg-stone-50 overflow-hidden">
+                                <button onclick="adjustLocalQty(${p.id}, -1)" class="px-3 py-2 text-xs font-bold text-stone-500 hover:bg-stone-200/60 cursor-pointer">-</button>
+                                <span id="qty-display-${p.id}" class="px-2 text-xs font-bold text-stone-800 min-w-[20px] text-center">1</span>
+                                <button onclick="adjustLocalQty(${p.id}, 1)" class="px-3 py-2 text-xs font-bold text-stone-500 hover:bg-stone-200/60 cursor-pointer">+</button>
+                            </div>
+                            <button onclick="addProductToCart(${p.id})" class="flex-1 bg-stone-900 hover:bg-rose-950 text-white font-semibold text-[11px] uppercase tracking-wider py-2.5 px-3 rounded-lg transition-colors cursor-pointer flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-plus text-[9px]"></i> Add To Order
+                            </button>
+                        </div>
+                    </div>
+                `;
+                target.appendChild(card);
+            });
+        }
+
+        function adjustLocalQty(id, delta) {
+            const el = document.getElementById(`qty-display-${id}`);
+            let val = parseInt(el.innerText) + delta;
+            if (val < 1) val = 1;
+            el.innerText = val;
+        }
+
+        function addProductToCart(id, explicitQty = null) {
+            const qtyDisplay = document.getElementById(`qty-display-${id}`);
+            const qty = explicitQty !== null ? explicitQty : parseInt(qtyDisplay.innerText);
+            const product = products.find(p => p.id === id);
+            const existing = cart.find(item => item.product.id === id);
+
+            if (existing) {
+                existing.quantity += qty;
+            } else {
+                cart.push({ product, quantity: qty });
+            }
+
+            if (qtyDisplay) qtyDisplay.innerText = "1";
+
+            renderCartState();
+            flashBadgeEffect();
+        }
+
+        function updateCartQuantity(id, delta) {
+            const target = cart.find(item => item.product.id === id);
+            if (!target) return;
+
+            target.quantity += delta;
+            if (target.quantity <= 0) {
+                cart = cart.filter(item => item.product.id !== id);
+            }
+            renderCartState();
+        }
+
+        function renderCartState() {
+            const container = document.getElementById('cart-items-container');
+            const badge = document.getElementById('cart-badge');
+            const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+            const totalPrice = cart.reduce((acc, item) => acc + (item.product.price * item.quantity), 0);
+            const totalWeight = cart.reduce((acc, item) => acc + (item.product.weightNum * item.quantity), 0);
+
+            if (totalItems > 0) {
+                badge.innerText = totalItems;
+                badge.classList.remove('opacity-0', 'scale-50');
+                badge.classList.add('opacity-100', 'scale-100');
+            } else {
+                badge.classList.remove('opacity-100', 'scale-100');
+                badge.classList.add('opacity-0', 'scale-50');
+            }
+
+            document.getElementById('cart-total-price').innerText = `$${totalPrice.toFixed(2)}`;
+            document.getElementById('cart-total-weight').innerText = `${totalWeight}g`;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center p-8 space-y-2 opacity-60">
+                        <i class="fa-solid fa-cookie-bite text-3xl text-stone-300"></i>
+                        <p class="font-serif text-sm font-semibold text-stone-700">Your collection container is dry.</p>
+                        <p class="text-stone-400 text-[11px]">Select specific portion quantities below the catalog cards to start compiling.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = '';
+            cart.forEach(item => {
+                const row = document.createElement('div');
+                row.className = "flex items-center justify-between gap-4 p-3 rounded-xl border border-stone-100 bg-stone-50/50";
+                row.innerHTML = `
+                    <img src="${item.product.image}" alt="${item.product.name}" class="w-12 h-12 object-cover rounded-lg border border-stone-200/50">
+                    <div class="flex-1 space-y-0.5">
+                        <p class="text-xs font-bold text-stone-800 line-clamp-1">${item.product.name}</p>
+                        <p class="text-[10px] text-stone-400 font-medium font-mono">${item.product.formattedPrice} - Total mass: ${item.product.weightNum * item.quantity}g</p>
+                    </div>
+                    <div class="flex items-center border border-stone-200 bg-white rounded-md overflow-hidden">
+                        <button onclick="updateCartQuantity(${item.product.id}, -1)" class="px-2 py-1 text-[10px] font-black text-stone-500 hover:bg-stone-100 cursor-pointer">-</button>
+                        <span class="px-1.5 text-xs font-bold text-stone-800 min-w-[15px] text-center">${item.quantity}</span>
+                        <button onclick="updateCartQuantity(${item.product.id}, 1)" class="px-2 py-1 text-[10px] font-black text-stone-500 hover:bg-stone-100 cursor-pointer">+</button>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        function flashBadgeEffect() {
+            const b = document.getElementById('cart-badge');
+            b.classList.add('bg-emerald-600', 'scale-125');
+            setTimeout(() => {
+                b.classList.remove('bg-emerald-600', 'scale-125');
+            }, 300);
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-drawer-overlay');
+            const isOpened = !drawer.classList.contains('translate-x-full');
+
+            if (isOpened) {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                overlay.classList.remove('opacity-100');
+            } else {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('pointer-events-none', 'opacity-0');
+                overlay.classList.add('opacity-100');
+            }
+        }
+
+        function abrirModal(id) {
+            const p = products.find(prod => prod.id === id);
+            const modal = document.getElementById('modal-producto');
+            const card = modal.querySelector('.max-w-2xl');
+
+            document.getElementById('modal-img').src = p.image;
+            document.getElementById('modal-img').alt = p.name;
+            document.getElementById('modal-title').innerText = p.name;
+            document.getElementById('modal-price').innerText = p.formattedPrice;
+            document.getElementById('modal-kcal').innerText = p.kcal;
+            document.getElementById('modal-weight').innerText = p.weight;
+            document.getElementById('modal-desc').innerText = p.desc;
+
+            const box = document.getElementById('modal-allergens');
+            box.innerHTML = '';
+            p.allergens.forEach(a => {
+                const b = document.createElement('span');
+                b.className = 'bg-stone-100 text-stone-700 text-[10px] font-semibold px-2.5 py-1 rounded-md border border-stone-200/60';
+                b.innerText = a;
+                box.appendChild(b);
+            });
+
+            document.getElementById('modal-action-box').innerHTML = `
+                <button onclick="addProductToCart(${p.id}, 1); cerrarModal();" class="w-full bg-stone-900 hover:bg-rose-950 text-white font-semibold text-xs uppercase tracking-wider py-3.5 px-4 rounded-xl transition-colors cursor-pointer flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-cart-plus"></i> Collect 1 Unit Into Bag
+                </button>
+            `;
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            card.classList.remove('scale-95');
+            card.classList.add('scale-100');
+        }
+
+        function cerrarModal() {
+            const modal = document.getElementById('modal-producto');
+            const card = modal.querySelector('.max-w-2xl');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            card.classList.remove('scale-100');
+            card.classList.add('scale-95');
+        }
+
+        window.onclick = function (e) {
+            const modal = document.getElementById('modal-producto');
+            if (e.target === modal) cerrarModal();
+        }
+
+        function compileAndSendToWhatsApp() {
+            if (cart.length === 0) return;
+
+            const targetPhone = "34987654321";
+            let msg = `*AURELIA ATELIER*\n`;
+            msg += `_Haute Patisserie Automated Compilation_\n`;
+            msg += `=============================\n\n`;
+
+            cart.forEach((item, index) => {
+                msg += `${index + 1}. *${item.product.name}*\n`;
+                msg += `   -> Qty / Portions: [ *${item.quantity}* ]\n`;
+                msg += `   -> Segment Weight: ${item.product.weightNum * item.quantity}g\n`;
+                msg += `   -> Price Subtotal: $${(item.product.price * item.quantity).toFixed(2)}\n\n`;
+            });
+
+            const totalP = cart.reduce((acc, item) => acc + (item.product.price * item.quantity), 0);
+            const totalW = cart.reduce((acc, item) => acc + (item.product.weightNum * item.quantity), 0);
+
+            msg += `=============================\n`;
+            msg += `*Total Structural Mass:* ${totalW}g\n`;
+            msg += `*Estimated Order Total:* $${totalP.toFixed(2)}\n\n`;
+            msg += `_Please check availability to confirm batch execution._`;
+
+            window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        window.onload = () => {
+            initApp();
+            renderCartState();
+        };
+    </script>
+</body>
+
+</html>
